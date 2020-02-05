@@ -1,0 +1,91 @@
+
+* {
+  base03:     #002b36;
+  base03t:    #002b36dd;
+  base02:     #2E3440;
+  base01:     #3B4252;
+  base0:      #434C5E;
+  base1:      #7B8394;
+  yellow:     #EBCB8B;
+  orange:     #D08770;
+  red:	      #BF616A;
+  blue:       #81A1C1;
+  cyan:       #88C0D0;	
+  black:      #000000;
+
+  spacing: 4;
+  font: "Ubuntu Regular 14";
+  background-color: transparent;
+
+  text-color: @base0;
+}
+
+window {
+  transparency: "real";
+  background-color: #2E3440ee;
+}
+
+mainbox {
+  padding: 30% 30%;
+}
+
+inputbar {
+  margin: 0px 0px 20px 0px;
+  children: [prompt, textbox-prompt-colon, entry, case-indicator];
+}
+
+prompt {
+  text-color: @orange;
+}
+
+textbox-prompt-colon {
+  expand: false;
+  str: ":";
+  text-color: @orange;
+}
+
+entry {
+  margin: 0px 10px;
+  text-color: @orange;
+
+}
+
+listview {
+  spacing: 5px;
+  dynamic: true;
+  scrollbar: false;
+}
+
+element {
+  padding: 5px;
+  text-color: @base1;
+  highlight: @orange;
+  border-radius: 0px;
+}
+
+element selected {
+  background-color: @orange;
+  text-color: @black;
+}
+
+element urgent, element selected urgent {
+  text-color: @red;
+}
+
+element active, element selected active {
+  text-color: @yellow;
+}
+
+message {
+  padding: 5px;
+  border-radius: 3px;
+  background-color: @base02;
+  border: 0px;
+  border-color: @cyan;
+}
+
+button selected {
+  padding: 5px;
+  border-radius: 0px;
+  background-color: @base02;
+}
