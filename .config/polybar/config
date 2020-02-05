@@ -1,0 +1,358 @@
+[colors]
+background = #2E3440
+background-alt = #4c566a
+foreground = #ECEFF4
+foreground-alt = #a1abc2
+primary = #2E3440
+secondary = #4c566a
+alert = #bf616a
+yellow  = #EBCB8B
+orange  = #D08770
+red     = #BF616A
+magenta = #5E81AC
+violet  = #B48EAD
+blue    = #81A1C1
+cyan    = #88C0D0
+green   = #A3BE8C
+
+[bar/top]
+height = 25
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+; tray-position = right
+; tray-padding = 0
+; tray-background = ${colors.background}
+
+font-0 = Ubuntu Regular:pixelsize=12;2
+font-1 = Ubuntu Regular:size=13;2
+font-2 = Font Awesome 5 Free Solid:size=60;6
+font-3 = Font Awesome 5 Free Solid:pixelsize=13;2
+
+modules-left = ra5 i3 ra0 xwindow ra3
+modules-right = la4 pulseaudio la3 xkeyboard la2 wlan la1 battery la0 date la5
+
+cursor-click = pointer
+;cursor-scroll = ns-resize
+
+[bar/bottom]
+height = 25
+background = ${colors.background}
+foreground = ${colors.foreground}
+bottom = true
+
+font-0 = FontAwesome:pixelsize=13;1
+font-1 = Ubuntu Regular:size=12;2
+font-2 = Font Awesome 5 Free Solid::size=60;6
+font-3 = Font Awesome 5 Free Solid:pixelsize=12;1
+
+modules-center = ra5 nba ra4
+modules-left = ra5 cpu ra0 temperature ra1 memory ra2 filesystem ra3 
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+label-background = ${colors.background-alt}
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+format-background = ${colors.background-alt}
+format-prefix = " "
+format-prefix-font = 4
+
+label-layout = %layout%
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+
+;label-mode-padding = 2
+label-mode-foreground = ${colors.foreground-alt}
+label-mode-background = ${colors.orange}
+
+; focused = Active workspace on focused monitor
+;label-focused = %name%
+label-focused-background = ${colors.orange}
+label-focused-underline= ${colors.secondary}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+;label-unfocused = %index%
+label-unfocused-background = ${colors.orange}
+label-unfocused-foreground = ${colors.foreground-alt}
+label-unfocused-padding = 2
+
+; visible = Active workspace on unfocused monitor
+;label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+;label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+[module/wlan]
+type = internal/network
+interface = wlo1
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-background = ${colors.orange}
+;<ramp-signal>
+label-connected = %essid%
+
+format-connected-prefix = " " 
+format-connected-prefix-font = 4 
+
+;format-disconnected =
+format-disconnected = <label-disconnected>
+label-disconnected = %ifname% disconnected
+
+
+[module/date]
+type = internal/date
+interval = 5
+date =
+;date-alt = " %Y-%m-%d"
+date-alt = %A, %d %B
+time = %H:%M
+time-alt = %H:%M
+
+format-prefix = " "
+format-prefix-font = 4
+format-background = ${colors.orange}
+
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <ramp-volume>  <bar-volume>
+format-volume-background = ${colors.orange}
+ramp-volume-0 = " "
+ramp-volume-1 = " "
+ramp-volume-2 = " "
+ramp-volume-font = 4
+
+label-muted = muted
+label-muted-foreground = #666
+label-muted-background = ${colors.orange}
+
+bar-volume-width = 15
+bar-volume-background = #0a6cf5
+bar-volume-indicator = \
+bar-volume-fill = .
+bar-volume-empty = .
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+full-at = 98
+bar-capacity-width = 10
+format-charging-background = ${colors.background-alt}
+format-charging = <animation-charging> <label-charging>
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-background = ${colors.background-alt}
+format-full-background = ${colors.background-alt}
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = %percentage%%  %time%
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = %percentage%% %time%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+label-full =  %percentage%%
+animation-charging-font = 4
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-framerate = 750
+animation-discharging-font = 4
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-framerate = 750
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-background = ${colors.orange}
+label = %percentage:2%%
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 90
+
+format = <label>
+format-background = ${colors.background-alt}
+format-underline =${colors.red}
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+format-prefix = " "
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = A
+ramp-1 = B
+ramp-2 = C
+ramp-foreground = ${colors.foreground-alt}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-font = 4
+format-background = ${colors.orange}
+label = %percentage_used%%   
+;format-prefix-margin-left = 4
+
+[module/filesystem]
+type = internal/fs
+interval = 60
+;format-mounted-prefix-margin-left = 4
+mount-0 = /
+format-mounted = <label-mounted>
+format-mounted-prefix = " "
+format-mounted-prefix-font = 4
+label-mounted = %fsname%: %percentage_used%% of %total%
+format-mounted-background = ${colors.background-alt}
+
+[module/nba]
+type = custom/script
+exec = .config/polybar/modules/nba-boxscore/launch.sh
+format-prefix = "   "
+format-prefix-font = 4
+label = %output%
+format-background = ${colors.orange}
+interval = 10
+
+[module/la0]
+type = custom/text
+; Label
+content            = %{T3}%{T-}
+content-foreground = ${colors.orange}
+content-background = ${colors.background-alt}
+
+[module/la2]
+type = custom/text
+; Label
+content            = %{T3}%{T-}
+content-foreground = ${colors.orange}
+content-background = ${colors.background-alt}
+
+[module/la1]
+type = custom/text
+; Label
+content            = %{T3}%{T-}
+content-foreground = ${colors.background-alt}
+content-background = ${colors.orange}
+
+[module/la3]
+type = custom/text
+
+; Label
+content            = %{T3}%{T-}
+content-foreground = ${colors.background-alt}
+content-background = ${colors.orange}
+
+[module/la4]
+type = custom/text
+
+; Label
+content            = %{T3}%{T-}
+content-foreground = ${colors.orange}
+content-background = ${colors.background}
+
+[module/la5]
+type = custom/text
+
+; Label
+content            = %{T3}%{T-}
+content-foreground = ${colors.background}
+content-background = ${colors.orange}
+
+[module/ra0]
+type = custom/text
+
+; Label
+content            = %{T3}%{T-}
+content-foreground = ${colors.orange}
+content-background = ${colors.background-alt}
+
+[module/ra1]
+type = custom/text
+
+; Label
+content            = %{T3}%{T-}
+content-foreground = ${colors.background-alt}
+content-background = ${colors.orange}
+
+[module/ra2]
+type = custom/text
+
+; Label
+content            = %{T3}%{T-}
+content-foreground = ${colors.orange}
+content-background = ${colors.background-alt}
+
+[module/ra3]
+type = custom/text
+
+; Label
+content            = %{T3}%{T-}
+content-foreground = ${colors.background-alt}
+content-background = ${colors.background}
+
+[module/ra4]
+type = custom/text
+content            = %{T3}%{T-}
+content-foreground = ${colors.orange}
+content-background = ${colors.background}
+
+[module/ra5]
+type = custom/text
+content            = %{T3}%{T-}
+content-foreground = ${colors.background}
+content-background = ${colors.orange}
