@@ -43,6 +43,7 @@ set $ws19 "19"
 
 assign [class="Code"] $ws2
 assign [class="unityhub"] $ws3
+assign [class="steam"] $ws5
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -183,28 +184,28 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Logout of session
-bindsym $mod+Shift+e exec /usr/bin/gnome-session-quit --logout
+bindsym $mod+Shift+e exec --no-startup-id /usr/bin/gnome-session-quit --logout
 
 # Reboot computer
-bindsym $mod+Shift+b exec /usr/bin/gnome-session-quit --reboot
+bindsym $mod+Shift+b exec --no-startup-id /usr/bin/gnome-session-quit --reboot
 
 # Power off computer
-bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off
+bindsym $mod+Shift+p exec --no-startup-id /usr/bin/gnome-session-quit --power-off
 
 # lock the screen
-bindsym $mod+Escape exec gnome-screensaver-command --lock
+bindsym $mod+Escape exec --no-startup-id gnome-screensaver-command --lock
 
 # put the system to sleep
-bindsym $mod+Shift+s exec systemctl suspend
+bindsym $mod+Shift+s --no-startup-id exec systemctl suspend
 
 # shortcuts for common system configuration tasks
-bindsym $mod+c exec gnome-control-center
-bindsym $mod+w exec gnome-control-center wifi
-bindsym $mod+b exec gnome-control-center bluetooth
-bindsym $mod+d exec gnome-control-center display
-bindsym $mod+n exec gnome-control-center network
-bindsym $mod+p exec gnome-control-center power
-bindsym $mod+s exec gnome-control-center sound
+bindsym $mod+c exec --no-startup-id gnome-control-center
+bindsym $mod+w exec --no-startup-id gnome-control-center wifi
+bindsym $mod+b exec--no-startup-id gnome-control-center bluetooth
+bindsym $mod+d exec--no-startup-id gnome-control-center display
+bindsym $mod+n exec--no-startup-id gnome-control-center network
+bindsym $mod+p exec--no-startup-id $HOME/.scripts/powerprofile.sh #exec gnome-control-center power
+bindsym $mod+s exec--no-startup-id gnome-control-center sound
 
 # resize window (you can also use the mouse for that)
 mode "Resize Mode" {
