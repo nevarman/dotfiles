@@ -41,9 +41,10 @@ set $ws17 "17"
 set $ws18 "18"
 set $ws19 "19"
 
+assign [class="UnityHub"] $ws3
 assign [class="Code"] $ws2
-assign [class="unityhub"] $ws3
-assign [class="steam"] $ws5
+assign [class="Steam"] $ws5
+assign [class="Spotify"] $ws9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -57,7 +58,7 @@ bindsym $mod+Return exec --no-startup-id $terminal_path
 bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 set_from_resource $rofiTheme rofi.theme "regolith-theme"
 
@@ -190,7 +191,7 @@ bindsym $mod+Shift+e exec --no-startup-id /usr/bin/gnome-session-quit --logout
 bindsym $mod+Shift+b exec --no-startup-id /usr/bin/gnome-session-quit --reboot
 
 # Power off computer
-bindsym $mod+Shift+p exec --no-startup-id /usr/bin/gnome-session-quit --power-off
+bindsym $mod+Shift+p exec --no-startup-id $HOME/.scripts/power.sh #/usr/bin/gnome-session-quit --power-off
 
 # lock the screen
 bindsym $mod+Escape exec --no-startup-id gnome-screensaver-command --lock

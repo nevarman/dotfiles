@@ -1,3 +1,4 @@
+#!/bin/bash
 pro=$(system76-power profile)
 
 battery="battery"
@@ -15,6 +16,6 @@ if [[ $pro  == *"Performance"* ]]; then
 fi
 # select and apply
 selection="${battery}\n ${balanced}\n ${performance}"
-profile=$(echo "$selection" | rofi -dmenu)
+profile=$(echo -e "$selection" | rofi -dmenu)
 newprofile=$(system76-power profile $profile)
 notify-send "$newprofile" -u low
