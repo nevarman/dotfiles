@@ -43,8 +43,10 @@ set $ws19 "19"
 
 assign [class="UnityHub"] $ws3
 assign [class="Code"] $ws2
+assign [class="Godot"] $ws2
 assign [class="Steam"] $ws5
 assign [class="Spotify"] $ws9
+assign [class="Thunderbird"] $ws4
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

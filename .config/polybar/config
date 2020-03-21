@@ -20,9 +20,9 @@ height = 25
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-; tray-position = right
+tray-position = right
 ; tray-padding = 0
-; tray-background = ${colors.background}
+;tray-background = ${colors.background-alt}
 
 font-0 = Ubuntu Regular:pixelsize=12;2
 font-1 = Ubuntu Regular:size=13;2
@@ -46,7 +46,7 @@ font-1 = Ubuntu Regular:size=12;2
 font-2 = Font Awesome 5 Free Solid::size=60;6
 font-3 = Font Awesome 5 Free Solid:pixelsize=12;1
 
-modules-center = ra5 nba ra4
+; modules-center = ra5 nba ra4
 modules-left = ra5 cpu ra0 temperature ra1 memory ra2 filesystem ra3 
 
 
