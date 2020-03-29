@@ -208,6 +208,7 @@ bindsym $mod+b exec--no-startup-id gnome-control-center bluetooth
 bindsym $mod+d exec--no-startup-id gnome-control-center display
 bindsym $mod+n exec--no-startup-id gnome-control-center network
 bindsym $mod+p exec--no-startup-id $HOME/.scripts/powerprofile.sh #exec gnome-control-center power
+bindsym $mod+g exec--no-startup-id $HOME/.scripts/system76graphics.sh
 bindsym $mod+s exec--no-startup-id gnome-control-center sound
 
 # resize window (you can also use the mouse for that)

@@ -18,4 +18,4 @@ fi
 selection="${battery}\n ${balanced}\n ${performance}"
 profile=$(echo -e "$selection" | rofi -dmenu)
 newprofile=$(system76-power profile $profile)
-notify-send "$newprofile" -u low
+notify-send "$newprofile" 
