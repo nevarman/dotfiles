@@ -16,33 +16,35 @@ cyan    = #88C0D0
 green   = #A3BE8C
 
 [bar/top]
-height = 25
+height = 22
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-tray-position = right
+
 ; tray-padding = 0
 ;tray-background = ${colors.background-alt}
 
-font-0 = Ubuntu Regular:pixelsize=12;2
-font-1 = Ubuntu Regular:size=13;2
+font-0 = Ubuntu Regular:pixelsize=11;2
+font-1 = Ubuntu Regular:size=12;2
 font-2 = Font Awesome 5 Free Solid:size=60;6
-font-3 = Font Awesome 5 Free Solid:pixelsize=13;2
+font-3 = Font Awesome 5 Free Solid:pixelsize=12;2
 
 modules-left = ra5 i3 ra0 xwindow ra3
-modules-right = la4 pulseaudio la3 xkeyboard la2 wlan la1 battery la0 date la5
+modules-right = la4 pulseaudio la3 xkeyboard la2 wlan vpn-openvpn-status la1 battery la0 date la5
 
 cursor-click = pointer
 ;cursor-scroll = ns-resize
 
 [bar/bottom]
-height = 25
+height = 20
 background = ${colors.background}
 foreground = ${colors.foreground}
 bottom = true
+tray-position = left
+tray-background = ${colors.background}
 
-font-0 = FontAwesome:pixelsize=13;1
-font-1 = Ubuntu Regular:size=12;2
+font-0 = FontAwesome:pixelsize=11;1
+font-1 = Ubuntu Regular:size=10;2
 font-2 = Font Awesome 5 Free Solid::size=60;6
 font-3 = Font Awesome 5 Free Solid:pixelsize=12;1
 
@@ -87,7 +89,7 @@ label-focused-padding = 2
 ; unfocused = Inactive workspace on any monitor
 ;label-unfocused = %index%
 label-unfocused-background = ${colors.orange}
-label-unfocused-foreground = ${colors.foreground-alt}
+label-unfocused-foreground = ${colors.background}
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
@@ -122,11 +124,11 @@ label-disconnected = %ifname% disconnected
 [module/date]
 type = internal/date
 interval = 5
-date =
+date = %A, %d %B
 ;date-alt = " %Y-%m-%d"
-date-alt = %A, %d %B
+; date-alt = %A, %d %B
 time = %H:%M
-time-alt = %H:%M
+; time-alt = %H:%M
 
 format-prefix = " "
 format-prefix-font = 4
@@ -245,6 +247,12 @@ format-mounted-prefix = " "
 format-mounted-prefix-font = 4
 label-mounted = %fsname%: %percentage_used%% of %total%
 format-mounted-background = ${colors.background-alt}
+
+[module/vpn-openvpn-status]
+type = custom/script
+exec = .config/polybar/modules/vpn-openvpn-status.sh
+interval = 5
+format-background = ${colors.orange}
 
 [module/nba]
 type = custom/script
