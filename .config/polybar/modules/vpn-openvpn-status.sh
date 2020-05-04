@@ -1,3 +1,7 @@
 #!/bin/sh
-
-printf "  VPN " && nordvpn status
+if nordvpn status | grep -q Connected
+then 
+   echo " | VPN:Up";
+else
+   echo " | VPN:Down";
+fi
